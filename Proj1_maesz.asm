@@ -23,9 +23,11 @@ INCLUDE Irvine32.inc
 
 ; (insert variable definitions here)
 
-intro_1   BYTE    "Hi, my name is Zac and this is my Project One Simple MASM Program!", 0		; data for introduction
-intro_2   BYTE    "Instructions: You are going to enter three numbers (A, B, C) in descending order. This program will calculate the following calculations:", 0  ; data for instructions
-intro_3   BYTE    "A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0  ; data for instructions
+intro_1   BYTE    "Hi, my name is Zac and this is my Project One Simple MASM Program!", 0	; data for introduction
+intro_2   BYTE    "Instructions:", 0  ; data for instructions
+intro_3   BYTE    "You are going to enter three numbers (A, B, C) in descending order.", 0  ; data for instructions
+intro_4   BYTE    "This program will calculate the following calculations:", 0              ; data for instructions
+intro_5   BYTE    "    A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0  ; data for instructions
 
 prompt_A  BYTE    "Please enter what number you would like A to equal (Remember, this must be the largets number of the three!)", 0
 prompt_B  BYTE	  "Please enter what number you would like B to equal (Remember, this must be smaller than A and larger than C!)", 0
@@ -44,7 +46,7 @@ aMinusB	  DWORD	  ? ; DO I EVEN NEED THIS???
 	; this would continue on for all if needed...
 
 ;----------------------------------------------------
-
+result_0  BYTE    "HERE ARE YOUR RESULTS: "
 result_1  BYTE    "A + B = ", 0			; data for displaying calculations
 result_2  BYTE    "A - B = ", 0			; data for displaying calculations
 result_3  BYTE    "A + C = ", 0			; data for displaying calculations
@@ -71,8 +73,27 @@ mov     EDX, OFFSET intro_2
 call WriteString
 call CrLf
 
+mov     EDX, OFFSET intro_3
+call WriteString
+call CrLf
+
+mov     EDX, OFFSET intro_4
+call WriteString
+call CrLf
+
+mov     EDX, OFFSET intro_5
+call WriteString
+call CrLf
+
 ;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
+
+
 ;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+;-Calculate the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+
+
+;-display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+; mov     EDX, OFFSET 
 
 ;-Display a closing message.
 mov     EDX, OFFSET outro_1

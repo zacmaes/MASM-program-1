@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 14:37:12
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Page 1 - 1
 
 
@@ -44,7 +44,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
 
 				; (insert variable definitions here)
 
- 00000000 48 69 2C 20 6D	intro_1   BYTE    "Hi, my name is Zac and this is my Project One Simple MASM Program!", 0		; data for introduction
+ 00000000 48 69 2C 20 6D	intro_1   BYTE    "Hi, my name is Zac and this is my Project One Simple MASM Program!", 0	; data for introduction
 	   79 20 6E 61 6D
 	   65 20 69 73 20
 	   5A 61 63 20 61
@@ -58,44 +58,45 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
 	   53 4D 20 50 72
 	   6F 67 72 61 6D
 	   21 00
- 00000043 49 6E 73 74 72	intro_2   BYTE    "Instructions: You are going to enter three numbers (A, B, C) in descending order. This program will calculate the following calculations:", 0  ; data for instructions
+ 00000043 49 6E 73 74 72	intro_2   BYTE    "Instructions:", 0  ; data for instructions
 	   75 63 74 69 6F
-	   6E 73 3A 20 59
-	   6F 75 20 61 72
-	   65 20 67 6F 69
-	   6E 67 20 74 6F
-	   20 65 6E 74 65
-	   72 20 74 68 72
-	   65 65 20 6E 75
-	   6D 62 65 72 73
-	   20 28 41 2C 20
-	   42 2C 20 43 29
-	   20 69 6E 20 64
-	   65 73 63 65 6E
-	   64 69 6E 67 20
-	   6F 72 64 65 72
-	   2E 20 54 68 69
-	   73 20 70 72 6F
-	   67 72 61 6D 20
-	   77 69 6C 6C 20
-	   63 61 6C 63 75
-	   6C 61 74 65 20
-	   74 68 65 20 66
-	   6F 6C 6C 6F 77
-	   69 6E 67 20 63
-	   61 6C 63 75 6C
-	   61 74 69 6F 6E
-	   73 3A 00
- 000000CD 41 2B 42 2C 20	intro_3   BYTE    "A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0  ; data for instructions
-	   41 2D 42 2C 20
-	   41 2B 43 2C 20
-	   41 2D 43 2C 20
-	   42 2B 43 2C 20
-	   42 2D 43 2C 20
-	   41 2B 42 2B 43
+	   6E 73 3A 00
+ 00000051 59 6F 75 20 61	intro_3   BYTE    "You are going to enter three numbers (A, B, C) in descending order.", 0  ; data for instructions
+	   72 65 20 67 6F
+	   69 6E 67 20 74
+	   6F 20 65 6E 74
+	   65 72 20 74 68
+	   72 65 65 20 6E
+	   75 6D 62 65 72
+	   73 20 28 41 2C
+	   20 42 2C 20 43
+	   29 20 69 6E 20
+	   64 65 73 63 65
+	   6E 64 69 6E 67
+	   20 6F 72 64 65
+	   72 2E 00
+ 00000095 54 68 69 73 20	intro_4   BYTE    "This program will calculate the following calculations:", 0              ; data for instructions
+	   70 72 6F 67 72
+	   61 6D 20 77 69
+	   6C 6C 20 63 61
+	   6C 63 75 6C 61
+	   74 65 20 74 68
+	   65 20 66 6F 6C
+	   6C 6F 77 69 6E
+	   67 20 63 61 6C
+	   63 75 6C 61 74
+	   69 6F 6E 73 3A
 	   00
+ 000000CD 20 20 20 20 41	intro_5   BYTE    "    A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0  ; data for instructions
+	   2B 42 2C 20 41
+	   2D 42 2C 20 41
+	   2B 43 2C 20 41
+	   2D 43 2C 20 42
+	   2B 43 2C 20 42
+	   2D 43 2C 20 41
+	   2B 42 2B 43 00
 
- 000000F1 50 6C 65 61 73	prompt_A  BYTE    "Please enter what number you would like A to equal (Remember, this must be the largets number of the three!)", 0
+ 000000F5 50 6C 65 61 73	prompt_A  BYTE    "Please enter what number you would like A to equal (Remember, this must be the largets number of the three!)", 0
 	   65 20 65 6E 74
 	   65 72 20 77 68
 	   61 74 20 6E 75
@@ -117,7 +118,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
 	   66 20 74 68 65
 	   20 74 68 72 65
 	   65 21 29 00
- 0000015E 50 6C 65 61 73	prompt_B  BYTE	  "Please enter what number you would like B to equal (Remember, this must be smaller than A and larger than C!)", 0
+ 00000162 50 6C 65 61 73	prompt_B  BYTE	  "Please enter what number you would like B to equal (Remember, this must be smaller than A and larger than C!)", 0
 	   65 20 65 6E 74
 	   65 72 20 77 68
 	   61 74 20 6E 75
@@ -139,7 +140,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
 	   61 72 67 65 72
 	   20 74 68 61 6E
 	   20 43 21 29 00
- 000001CC 50 6C 65 61 73	prompt_C  BYTE	  "Please enter what number you would like C to equal (Remember, this must be the smallest number of the three!)", 0
+ 000001D0 50 6C 65 61 73	prompt_C  BYTE	  "Please enter what number you would like C to equal (Remember, this must be the smallest number of the three!)", 0
 	   65 20 65 6E 74
 	   65 72 20 77 68
 	   61 74 20 6E 75
@@ -163,38 +164,42 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
 	   65 65 21 29 00
 
 				;----------------------------------------------------
- 0000023A 00000000		inputA	  DWORD   ?	; DO I EVEN NEED THIS??? 
- 0000023E 00000000		inputB	  DWORD	  ?	; DO I EVEN NEED THIS???
- 00000242 00000000		inputC	  DWORD	  ? ; DO I EVEN NEED THIS???
+ 0000023E 00000000		inputA	  DWORD   ?	; DO I EVEN NEED THIS??? 
+ 00000242 00000000		inputB	  DWORD	  ?	; DO I EVEN NEED THIS???
+ 00000246 00000000		inputC	  DWORD	  ? ; DO I EVEN NEED THIS???
 				;----------------------------------------------------
 
 				; data for calculating and saving calculations???
 
- 00000246 00000000		aPlusB	  DWORD	  ? ; DO I EVEN NEED THIS???
- 0000024A 00000000		aMinusB	  DWORD	  ? ; DO I EVEN NEED THIS???
+ 0000024A 00000000		aPlusB	  DWORD	  ? ; DO I EVEN NEED THIS???
+ 0000024E 00000000		aMinusB	  DWORD	  ? ; DO I EVEN NEED THIS???
 					; this would continue on for all if needed...
 
 				;----------------------------------------------------
-
- 0000024E 41 20 2B 20 42	result_1  BYTE    "A + B = ", 0			; data for displaying calculations
+ 00000252 48 45 52 45 20	result_0  BYTE    "HERE ARE YOUR RESULTS: "
+	   41 52 45 20 59
+	   4F 55 52 20 52
+	   45 53 55 4C 54
+	   53 3A 20
+ 00000269 41 20 2B 20 42	result_1  BYTE    "A + B = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 00000257 41 20 2D 20 42	result_2  BYTE    "A - B = ", 0			; data for displaying calculations
+ 00000272 41 20 2D 20 42	result_2  BYTE    "A - B = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 00000260 41 20 2B 20 43	result_3  BYTE    "A + C = ", 0			; data for displaying calculations
+ 0000027B 41 20 2B 20 43	result_3  BYTE    "A + C = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 00000269 41 20 2D 20 43	result_4  BYTE    "A - C = ", 0			; data for displaying calculations
+ 00000284 41 20 2D 20 43	result_4  BYTE    "A - C = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 00000272 42 20 2B 20 43	result_5  BYTE    "B + C = ", 0			; data for displaying calculations
+ 0000028D 42 20 2B 20 43	result_5  BYTE    "B + C = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 0000027B 42 20 2D 20 43	result_6  BYTE    "B - C = ", 0			; data for displaying calculations
+ 00000296 42 20 2D 20 43	result_6  BYTE    "B - C = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 00000284 41 20 2B 20 42	result_7  BYTE    "A + B + C = ", 0     ; data for displaying calculations
+ 0000029F 41 20 2B 20 42	result_7  BYTE    "A + B + C = ", 0     ; data for displaying calculations
 	   20 2B 20 43 20
 	   3D 20 00
 
 				;----------------------------------------------------
 
- 00000291 54 48 41 4E 4B	outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing message
+ 000002AC 54 48 41 4E 4B	outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing message
 	   20 59 4F 55 20
 	   46 4F 52 20 52
 	   55 4E 4E 49 4E
@@ -216,24 +221,43 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
  00000014  E8 00000000 E	call WriteString
  00000019  E8 00000000 E	call CrLf
 
+ 0000001E  BA 00000051 R	mov     EDX, OFFSET intro_3
+ 00000023  E8 00000000 E	call WriteString
+ 00000028  E8 00000000 E	call CrLf
+
+ 0000002D  BA 00000095 R	mov     EDX, OFFSET intro_4
+ 00000032  E8 00000000 E	call WriteString
+ 00000037  E8 00000000 E	call CrLf
+
+ 0000003C  BA 000000CD R	mov     EDX, OFFSET intro_5
+ 00000041  E8 00000000 E	call WriteString
+ 00000046  E8 00000000 E	call CrLf
+
 				;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
+
+
 				;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+				;-Calculate the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+
+
+				;-display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+				; mov     EDX, OFFSET 
 
 				;-Display a closing message.
- 0000001E  BA 00000291 R	mov     EDX, OFFSET outro_1
- 00000023  E8 00000000 E	call    WriteString
- 00000028  E8 00000000 E	call    CrLf
+ 0000004B  BA 000002AC R	mov     EDX, OFFSET outro_1
+ 00000050  E8 00000000 E	call    WriteString
+ 00000055  E8 00000000 E	call    CrLf
 
 
 					Invoke ExitProcess,0	; exit to operating system
- 0000002D  6A 00	   *	    push   +000000000h
- 0000002F  E8 00000000 E   *	    call   ExitProcess
- 00000034			main ENDP
+ 0000005A  6A 00	   *	    push   +000000000h
+ 0000005C  E8 00000000 E   *	    call   ExitProcess
+ 00000061			main ENDP
 
 				; (insert additional procedures here)
 
 				END main
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 14:37:12
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Symbols 2 - 1
 
 
@@ -327,8 +351,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 000002B3 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000034 Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 000002CE Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000061 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -435,7 +459,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000034 Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000061 Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
@@ -654,8 +678,8 @@ VK_UP  . . . . . . . . . . . . .	Number	 00000026h
 WINDOW_BUFFER_SIZE_EVENT . . . .	Number	 00000004h   
 WriteConsoleOutputCharacter  . .	Text   	 WriteConsoleOutputCharacterA
 WriteConsole . . . . . . . . . .	Text   	 WriteConsoleA
-aMinusB  . . . . . . . . . . . .	DWord	 0000024A _DATA	
-aPlusB . . . . . . . . . . . . .	DWord	 00000246 _DATA	
+aMinusB  . . . . . . . . . . . .	DWord	 0000024E _DATA	
+aPlusB . . . . . . . . . . . . .	DWord	 0000024A _DATA	
 black  . . . . . . . . . . . . .	Number	 00000000h   
 blue . . . . . . . . . . . . . .	Number	 00000001h   
 brown  . . . . . . . . . . . . .	Number	 00000006h   
@@ -663,12 +687,14 @@ cyan . . . . . . . . . . . . . .	Number	 00000003h
 exit . . . . . . . . . . . . . .	Text   	 INVOKE ExitProcess,0
 gray . . . . . . . . . . . . . .	Number	 00000008h   
 green  . . . . . . . . . . . . .	Number	 00000002h   
-inputA . . . . . . . . . . . . .	DWord	 0000023A _DATA	
-inputB . . . . . . . . . . . . .	DWord	 0000023E _DATA	
-inputC . . . . . . . . . . . . .	DWord	 00000242 _DATA	
+inputA . . . . . . . . . . . . .	DWord	 0000023E _DATA	
+inputB . . . . . . . . . . . . .	DWord	 00000242 _DATA	
+inputC . . . . . . . . . . . . .	DWord	 00000246 _DATA	
 intro_1  . . . . . . . . . . . .	Byte	 00000000 _DATA	
 intro_2  . . . . . . . . . . . .	Byte	 00000043 _DATA	
-intro_3  . . . . . . . . . . . .	Byte	 000000CD _DATA	
+intro_3  . . . . . . . . . . . .	Byte	 00000051 _DATA	
+intro_4  . . . . . . . . . . . .	Byte	 00000095 _DATA	
+intro_5  . . . . . . . . . . . .	Byte	 000000CD _DATA	
 lightBlue  . . . . . . . . . . .	Number	 00000009h   
 lightCyan  . . . . . . . . . . .	Number	 0000000Bh   
 lightGray  . . . . . . . . . . .	Number	 00000007h   
@@ -676,18 +702,19 @@ lightGreen . . . . . . . . . . .	Number	 0000000Ah
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-outro_1  . . . . . . . . . . . .	Byte	 00000291 _DATA	
-prompt_A . . . . . . . . . . . .	Byte	 000000F1 _DATA	
-prompt_B . . . . . . . . . . . .	Byte	 0000015E _DATA	
-prompt_C . . . . . . . . . . . .	Byte	 000001CC _DATA	
+outro_1  . . . . . . . . . . . .	Byte	 000002AC _DATA	
+prompt_A . . . . . . . . . . . .	Byte	 000000F5 _DATA	
+prompt_B . . . . . . . . . . . .	Byte	 00000162 _DATA	
+prompt_C . . . . . . . . . . . .	Byte	 000001D0 _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
-result_1 . . . . . . . . . . . .	Byte	 0000024E _DATA	
-result_2 . . . . . . . . . . . .	Byte	 00000257 _DATA	
-result_3 . . . . . . . . . . . .	Byte	 00000260 _DATA	
-result_4 . . . . . . . . . . . .	Byte	 00000269 _DATA	
-result_5 . . . . . . . . . . . .	Byte	 00000272 _DATA	
-result_6 . . . . . . . . . . . .	Byte	 0000027B _DATA	
-result_7 . . . . . . . . . . . .	Byte	 00000284 _DATA	
+result_0 . . . . . . . . . . . .	Byte	 00000252 _DATA	
+result_1 . . . . . . . . . . . .	Byte	 00000269 _DATA	
+result_2 . . . . . . . . . . . .	Byte	 00000272 _DATA	
+result_3 . . . . . . . . . . . .	Byte	 0000027B _DATA	
+result_4 . . . . . . . . . . . .	Byte	 00000284 _DATA	
+result_5 . . . . . . . . . . . .	Byte	 0000028D _DATA	
+result_6 . . . . . . . . . . . .	Byte	 00000296 _DATA	
+result_7 . . . . . . . . . . . .	Byte	 0000029F _DATA	
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
 yellow . . . . . . . . . . . . .	Number	 0000000Eh   
