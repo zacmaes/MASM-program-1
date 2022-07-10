@@ -46,7 +46,7 @@ aMinusB	  DWORD	  ? ; DO I EVEN NEED THIS???
 	; this would continue on for all if needed...
 
 ;----------------------------------------------------
-result_0  BYTE    "HERE ARE YOUR RESULTS: "
+result_0  BYTE    "HERE ARE YOUR RESULTS: ", 0
 result_1  BYTE    "A + B = ", 0			; data for displaying calculations
 result_2  BYTE    "A - B = ", 0			; data for displaying calculations
 result_3  BYTE    "A + C = ", 0			; data for displaying calculations
@@ -113,7 +113,27 @@ mov     inputC, EAX
 
 
 ;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+mov    EDX, OFFSET result_0
+call   WriteString
+call   CrLf
 ;-Calculate the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+; (A+B)
+mov    EDX, OFFSET result_1
+call   WriteString
+
+mov    EAX, inputA
+add    EAX, inputB
+call   WriteDec
+call CrLf
+
+; (A-B)
+mov    EDX, OFFSET result_2
+call   WriteString
+
+mov    EAX, inputA
+sub    EAX, inputB
+call   WriteDec
+call CrLf
 
 
 
