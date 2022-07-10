@@ -36,18 +36,23 @@ inputB	  DWORD	  ?		; Stores user input for B
 inputC	  DWORD	  ?		; Stores user input for C
 
 result_0  BYTE    "HERE ARE YOUR RESULTS: ", 0
-result_1  BYTE    "A + B = ", 0						; data for displaying calculations
-result_2  BYTE    "A - B = ", 0						; data for displaying calculations
-result_3  BYTE    "A + C = ", 0						; data for displaying calculations
-result_4  BYTE    "A - C = ", 0						; data for displaying calculations
-result_5  BYTE    "B + C = ", 0						; data for displaying calculations
-result_6  BYTE    "B - C = ", 0						; data for displaying calculations
-result_7  BYTE    "A + B + C = ", 0					; data for displaying calculations
+result_1  BYTE    "A + B = ", 0					; data for displaying equation text before result
+result_2  BYTE    "A - B = ", 0					; data for displaying equation text before result
+result_3  BYTE    "A + C = ", 0					; data for displaying equation text before result
+result_4  BYTE    "A - C = ", 0					; data for displaying equation text before result
+result_5  BYTE    "B + C = ", 0					; data for displaying equation text before result
+result_6  BYTE    "B - C = ", 0					; data for displaying equation text before result
+result_7  BYTE    "A + B + C = ", 0				; data for displaying equation text before result
 
-;----------------------------------------------------
+APlusB    DWORD    ?							; stores result for A + B
+AMinusB   DWORD    ?							; stores result for A - B
+APlusC    DWORD    ?							; stores result for A + C
+AMinusC   DWORD    ?							; stores result for A - C
+BPlusC    DWORD    ?							; stores result for B + C
+BMinusC   DWORD    ?							; stores result for B - C
+ABCPlus   DWORD    ?							; stores result for A + B + C
 
 outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing message
-
 
 .code
 main PROC
@@ -105,7 +110,7 @@ call    ReadDec
 mov     inputC, EAX
 
 
-; -------------------CALCULATE THE REQUIRED VALUES | DISPLAY THE RESULTS-------------------
+; -------------------CALCULATE THE REQUIRED VALUES-------------------
 
 
 ;-Calculate and display the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
@@ -114,13 +119,9 @@ call   WriteString
 call   CrLf
 
 ; (A+B)
-mov    EDX, OFFSET result_1
-call   WriteString
-
 mov    EAX, inputA
 add    EAX, inputB
-call   WriteDec
-call CrLf
+mov    APlusB, EAX
 
 ; (A-B)
 mov    EDX, OFFSET result_2
@@ -174,6 +175,16 @@ call   WriteString
 mov    EAX, inputA
 add    EAX, inputB
 add    EAX, inputC
+call   WriteDec
+call CrLf
+
+
+; -------------------DISPLAY THE RESULTS-------------------
+; (A + B)
+mov    EDX, OFFSET result_1
+call   WriteString
+
+mov    EAX, APlusB
 call   WriteDec
 call CrLf
 
