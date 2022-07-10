@@ -153,6 +153,23 @@ sub    EAX, inputC
 call   WriteDec
 call CrLf
 
+; (B+C)
+mov    EDX, OFFSET result_5
+call   WriteString
+
+mov    EAX, inputB
+add    EAX, inputC
+call   WriteDec
+call CrLf
+
+; (B-C)
+mov    EDX, OFFSET result_6
+call   WriteString
+
+mov    EAX, inputB
+sub    EAX, inputC
+call   WriteDec
+call CrLf
 
 ;-display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 ; mov     EDX, OFFSET 
