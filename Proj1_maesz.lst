@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:44:54
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Page 1 - 1
 
 
@@ -264,7 +264,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:44:54
  00000087  BA 00000252 R	mov    EDX, OFFSET result_0
  0000008C  E8 00000000 E	call   WriteString
  00000091  E8 00000000 E	call   CrLf
-				;-Calculate the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+				;-Calculate and display the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 				; (A+B)
  00000096  BA 0000026A R	mov    EDX, OFFSET result_1
  0000009B  E8 00000000 E	call   WriteString
@@ -319,24 +319,32 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:44:54
  00000146  E8 00000000 E	call   WriteDec
  0000014B  E8 00000000 E	call CrLf
 
-				;-display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
-				; mov     EDX, OFFSET 
+				; (A+B+C)
+ 00000150  BA 000002A0 R	mov    EDX, OFFSET result_7
+ 00000155  E8 00000000 E	call   WriteString
+
+ 0000015A  A1 0000023E R	mov    EAX, inputA
+ 0000015F  03 05 00000242 R	add    EAX, inputB
+ 00000165  03 05 00000246 R	add    EAX, inputC
+ 0000016B  E8 00000000 E	call   WriteDec
+ 00000170  E8 00000000 E	call CrLf
+
 
 				;-Display a closing message.
- 00000150  BA 000002AD R	mov     EDX, OFFSET outro_1
- 00000155  E8 00000000 E	call    WriteString
- 0000015A  E8 00000000 E	call    CrLf
+ 00000175  BA 000002AD R	mov     EDX, OFFSET outro_1
+ 0000017A  E8 00000000 E	call    WriteString
+ 0000017F  E8 00000000 E	call    CrLf
 
 
 					Invoke ExitProcess,0	; exit to operating system
- 0000015F  6A 00	   *	    push   +000000000h
- 00000161  E8 00000000 E   *	    call   ExitProcess
- 00000166			main ENDP
+ 00000184  6A 00	   *	    push   +000000000h
+ 00000186  E8 00000000 E   *	    call   ExitProcess
+ 0000018B			main ENDP
 
 				; (insert additional procedures here)
 
 				END main
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:44:54
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Symbols 2 - 1
 
 
@@ -431,7 +439,7 @@ Segments and Groups:
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
 _DATA  . . . . . . . . . . . . .	32 Bit	 000002CF Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000166 Para	  Public  'CODE'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000018B Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -538,7 +546,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000166 Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000018B Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C

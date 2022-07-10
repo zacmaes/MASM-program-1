@@ -116,7 +116,7 @@ mov     inputC, EAX
 mov    EDX, OFFSET result_0
 call   WriteString
 call   CrLf
-;-Calculate the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+;-Calculate and display the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 ; (A+B)
 mov    EDX, OFFSET result_1
 call   WriteString
@@ -171,8 +171,16 @@ sub    EAX, inputC
 call   WriteDec
 call CrLf
 
-;-display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
-; mov     EDX, OFFSET 
+; (A+B+C)
+mov    EDX, OFFSET result_7
+call   WriteString
+
+mov    EAX, inputA
+add    EAX, inputB
+add    EAX, inputC
+call   WriteDec
+call CrLf
+
 
 ;-Display a closing message.
 mov     EDX, OFFSET outro_1
