@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:42:46
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Page 1 - 1
 
 
@@ -212,24 +212,28 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:42:46
  0000000A  E8 00000000 E	call    CrLf
 
 				;-Display instructions for the user.
+ 0000000F  BA 00000043 R	mov     EDX, OFFSET intro_2
+ 00000014  E8 00000000 E	call WriteString
+ 00000019  E8 00000000 E	call CrLf
+
 				;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
 				;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 
 				;-Display a closing message.
- 0000000F  BA 00000291 R	mov     EDX, OFFSET outro_1
- 00000014  E8 00000000 E	call    WriteString
- 00000019  E8 00000000 E	call    CrLf
+ 0000001E  BA 00000291 R	mov     EDX, OFFSET outro_1
+ 00000023  E8 00000000 E	call    WriteString
+ 00000028  E8 00000000 E	call    CrLf
 
 
 					Invoke ExitProcess,0	; exit to operating system
- 0000001E  6A 00	   *	    push   +000000000h
- 00000020  E8 00000000 E   *	    call   ExitProcess
- 00000025			main ENDP
+ 0000002D  6A 00	   *	    push   +000000000h
+ 0000002F  E8 00000000 E   *	    call   ExitProcess
+ 00000034			main ENDP
 
 				; (insert additional procedures here)
 
 				END main
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:42:46
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 13:45:10
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Symbols 2 - 1
 
 
@@ -324,7 +328,7 @@ Segments and Groups:
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
 _DATA  . . . . . . . . . . . . .	32 Bit	 000002B3 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000025 Para	  Public  'CODE'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000034 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -431,7 +435,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000025 Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000034 Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C

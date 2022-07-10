@@ -67,6 +67,10 @@ call    WriteString
 call    CrLf
 
 ;-Display instructions for the user.
+mov     EDX, OFFSET intro_2
+call WriteString
+call CrLf
+
 ;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
 ;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 
