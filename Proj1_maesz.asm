@@ -21,39 +21,28 @@ INCLUDE Irvine32.inc
 
 .data
 
-; (insert variable definitions here)
-
 intro_1   BYTE    "Hi, my name is Zac and this is my Project One Simple MASM Program!", 0	; data for introduction
-intro_2   BYTE    "Instructions:", 0  ; data for instructions
+intro_2   BYTE    "Instructions:", 0														; data for instructions
 intro_3   BYTE    "You are going to enter three numbers (A, B, C) in descending order.", 0  ; data for instructions
 intro_4   BYTE    "This program will calculate the following calculations:", 0              ; data for instructions
-intro_5   BYTE    "    A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0  ; data for instructions
+intro_5   BYTE    "    A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0								; data for instructions
 
-prompt_A  BYTE    "Please enter what number you would like A to equal (Remember, this must be the largets number of the three!)", 0
-prompt_B  BYTE	  "Please enter what number you would like B to equal (Remember, this must be smaller than A and larger than C!)", 0
-prompt_C  BYTE	  "Please enter what number you would like C to equal (Remember, this must be the smallest number of the three!)", 0
+prompt_A  BYTE    "Please enter what number you would like A to equal (Remember, this must be the largets number of the three!)", 0		; User Prompt for A
+prompt_B  BYTE	  "Please enter what number you would like B to equal (Remember, this must be smaller than A and larger than C!)", 0	; User Prompt for B
+prompt_C  BYTE	  "Please enter what number you would like C to equal (Remember, this must be the smallest number of the three!)", 0	; User Prompt for C
 
-;----------------------------------------------------
-inputA	  DWORD   ?	; DO I EVEN NEED THIS??? 
-inputB	  DWORD	  ?	; DO I EVEN NEED THIS???
-inputC	  DWORD	  ? ; DO I EVEN NEED THIS???
-;----------------------------------------------------
+inputA	  DWORD   ?		; Stores user input for A 
+inputB	  DWORD	  ?		; Stores user input for B
+inputC	  DWORD	  ?		; Stores user input for C
 
-; data for calculating and saving calculations???
-
-aPlusB	  DWORD	  ? ; DO I EVEN NEED THIS???
-aMinusB	  DWORD	  ? ; DO I EVEN NEED THIS???
-	; this would continue on for all if needed...
-
-;----------------------------------------------------
 result_0  BYTE    "HERE ARE YOUR RESULTS: ", 0
-result_1  BYTE    "A + B = ", 0			; data for displaying calculations
-result_2  BYTE    "A - B = ", 0			; data for displaying calculations
-result_3  BYTE    "A + C = ", 0			; data for displaying calculations
-result_4  BYTE    "A - C = ", 0			; data for displaying calculations
-result_5  BYTE    "B + C = ", 0			; data for displaying calculations
-result_6  BYTE    "B - C = ", 0			; data for displaying calculations
-result_7  BYTE    "A + B + C = ", 0     ; data for displaying calculations
+result_1  BYTE    "A + B = ", 0						; data for displaying calculations
+result_2  BYTE    "A - B = ", 0						; data for displaying calculations
+result_3  BYTE    "A + C = ", 0						; data for displaying calculations
+result_4  BYTE    "A - C = ", 0						; data for displaying calculations
+result_5  BYTE    "B + C = ", 0						; data for displaying calculations
+result_6  BYTE    "B - C = ", 0						; data for displaying calculations
+result_7  BYTE    "A + B + C = ", 0					; data for displaying calculations
 
 ;----------------------------------------------------
 
@@ -62,6 +51,7 @@ outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing mess
 
 .code
 main PROC
+; -------------------INTRODUCTION-------------------
 
 ;-Display your name and program title on the output screen.
 mov     EDX, OFFSET intro_1
@@ -84,6 +74,10 @@ call    CrLf
 mov     EDX, OFFSET intro_5
 call    WriteString
 call    CrLf
+
+
+; -------------------GET THE DATA-------------------
+
 
 ;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
 ; (A)
@@ -111,12 +105,14 @@ call    ReadDec
 mov     inputC, EAX
 
 
+; -------------------CALCULATE THE REQUIRED VALUES | DISPLAY THE RESULTS-------------------
 
-;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+
+;-Calculate and display the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 mov    EDX, OFFSET result_0
 call   WriteString
 call   CrLf
-;-Calculate and display the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+
 ; (A+B)
 mov    EDX, OFFSET result_1
 call   WriteString
@@ -180,6 +176,9 @@ add    EAX, inputB
 add    EAX, inputC
 call   WriteDec
 call CrLf
+
+
+; -------------------SAY GOODBYE-------------------
 
 
 ;-Display a closing message.

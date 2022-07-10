@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:52:58
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Page 1 - 1
 
 
@@ -42,8 +42,6 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 
  00000000			.data
 
-				; (insert variable definitions here)
-
  00000000 48 69 2C 20 6D	intro_1   BYTE    "Hi, my name is Zac and this is my Project One Simple MASM Program!", 0	; data for introduction
 	   79 20 6E 61 6D
 	   65 20 69 73 20
@@ -58,7 +56,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 	   53 4D 20 50 72
 	   6F 67 72 61 6D
 	   21 00
- 00000043 49 6E 73 74 72	intro_2   BYTE    "Instructions:", 0  ; data for instructions
+ 00000043 49 6E 73 74 72	intro_2   BYTE    "Instructions:", 0														; data for instructions
 	   75 63 74 69 6F
 	   6E 73 3A 00
  00000051 59 6F 75 20 61	intro_3   BYTE    "You are going to enter three numbers (A, B, C) in descending order.", 0  ; data for instructions
@@ -87,7 +85,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 	   63 75 6C 61 74
 	   69 6F 6E 73 3A
 	   00
- 000000CD 20 20 20 20 41	intro_5   BYTE    "    A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0  ; data for instructions
+ 000000CD 20 20 20 20 41	intro_5   BYTE    "    A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0								; data for instructions
 	   2B 42 2C 20 41
 	   2D 42 2C 20 41
 	   2B 43 2C 20 41
@@ -96,7 +94,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 	   2D 43 2C 20 41
 	   2B 42 2B 43 00
 
- 000000F5 50 6C 65 61 73	prompt_A  BYTE    "Please enter what number you would like A to equal (Remember, this must be the largets number of the three!)", 0
+ 000000F5 50 6C 65 61 73	prompt_A  BYTE    "Please enter what number you would like A to equal (Remember, this must be the largets number of the three!)", 0		; User Prompt for A
 	   65 20 65 6E 74
 	   65 72 20 77 68
 	   61 74 20 6E 75
@@ -118,7 +116,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 	   66 20 74 68 65
 	   20 74 68 72 65
 	   65 21 29 00
- 00000162 50 6C 65 61 73	prompt_B  BYTE	  "Please enter what number you would like B to equal (Remember, this must be smaller than A and larger than C!)", 0
+ 00000162 50 6C 65 61 73	prompt_B  BYTE	  "Please enter what number you would like B to equal (Remember, this must be smaller than A and larger than C!)", 0	; User Prompt for B
 	   65 20 65 6E 74
 	   65 72 20 77 68
 	   61 74 20 6E 75
@@ -140,7 +138,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 	   61 72 67 65 72
 	   20 74 68 61 6E
 	   20 43 21 29 00
- 000001D0 50 6C 65 61 73	prompt_C  BYTE	  "Please enter what number you would like C to equal (Remember, this must be the smallest number of the three!)", 0
+ 000001D0 50 6C 65 61 73	prompt_C  BYTE	  "Please enter what number you would like C to equal (Remember, this must be the smallest number of the three!)", 0	; User Prompt for C
 	   65 20 65 6E 74
 	   65 72 20 77 68
 	   61 74 20 6E 75
@@ -163,43 +161,34 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 	   65 20 74 68 72
 	   65 65 21 29 00
 
-				;----------------------------------------------------
- 0000023E 00000000		inputA	  DWORD   ?	; DO I EVEN NEED THIS??? 
- 00000242 00000000		inputB	  DWORD	  ?	; DO I EVEN NEED THIS???
- 00000246 00000000		inputC	  DWORD	  ? ; DO I EVEN NEED THIS???
-				;----------------------------------------------------
+ 0000023E 00000000		inputA	  DWORD   ?		; Stores user input for A 
+ 00000242 00000000		inputB	  DWORD	  ?		; Stores user input for B
+ 00000246 00000000		inputC	  DWORD	  ?		; Stores user input for C
 
-				; data for calculating and saving calculations???
-
- 0000024A 00000000		aPlusB	  DWORD	  ? ; DO I EVEN NEED THIS???
- 0000024E 00000000		aMinusB	  DWORD	  ? ; DO I EVEN NEED THIS???
-					; this would continue on for all if needed...
-
-				;----------------------------------------------------
- 00000252 48 45 52 45 20	result_0  BYTE    "HERE ARE YOUR RESULTS: ", 0
+ 0000024A 48 45 52 45 20	result_0  BYTE    "HERE ARE YOUR RESULTS: ", 0
 	   41 52 45 20 59
 	   4F 55 52 20 52
 	   45 53 55 4C 54
 	   53 3A 20 00
- 0000026A 41 20 2B 20 42	result_1  BYTE    "A + B = ", 0			; data for displaying calculations
+ 00000262 41 20 2B 20 42	result_1  BYTE    "A + B = ", 0						; data for displaying calculations
 	   20 3D 20 00
- 00000273 41 20 2D 20 42	result_2  BYTE    "A - B = ", 0			; data for displaying calculations
+ 0000026B 41 20 2D 20 42	result_2  BYTE    "A - B = ", 0						; data for displaying calculations
 	   20 3D 20 00
- 0000027C 41 20 2B 20 43	result_3  BYTE    "A + C = ", 0			; data for displaying calculations
+ 00000274 41 20 2B 20 43	result_3  BYTE    "A + C = ", 0						; data for displaying calculations
 	   20 3D 20 00
- 00000285 41 20 2D 20 43	result_4  BYTE    "A - C = ", 0			; data for displaying calculations
+ 0000027D 41 20 2D 20 43	result_4  BYTE    "A - C = ", 0						; data for displaying calculations
 	   20 3D 20 00
- 0000028E 42 20 2B 20 43	result_5  BYTE    "B + C = ", 0			; data for displaying calculations
+ 00000286 42 20 2B 20 43	result_5  BYTE    "B + C = ", 0						; data for displaying calculations
 	   20 3D 20 00
- 00000297 42 20 2D 20 43	result_6  BYTE    "B - C = ", 0			; data for displaying calculations
+ 0000028F 42 20 2D 20 43	result_6  BYTE    "B - C = ", 0						; data for displaying calculations
 	   20 3D 20 00
- 000002A0 41 20 2B 20 42	result_7  BYTE    "A + B + C = ", 0     ; data for displaying calculations
+ 00000298 41 20 2B 20 42	result_7  BYTE    "A + B + C = ", 0					; data for displaying calculations
 	   20 2B 20 43 20
 	   3D 20 00
 
 				;----------------------------------------------------
 
- 000002AD 54 48 41 4E 4B	outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing message
+ 000002A5 54 48 41 4E 4B	outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing message
 	   20 59 4F 55 20
 	   46 4F 52 20 52
 	   55 4E 4E 49 4E
@@ -259,14 +248,13 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
  00000082  A3 00000246 R	mov     inputC, EAX
 
 
-
-				;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
- 00000087  BA 00000252 R	mov    EDX, OFFSET result_0
+				;-Calculate and display the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+ 00000087  BA 0000024A R	mov    EDX, OFFSET result_0
  0000008C  E8 00000000 E	call   WriteString
  00000091  E8 00000000 E	call   CrLf
-				;-Calculate and display the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+
 				; (A+B)
- 00000096  BA 0000026A R	mov    EDX, OFFSET result_1
+ 00000096  BA 00000262 R	mov    EDX, OFFSET result_1
  0000009B  E8 00000000 E	call   WriteString
 
  000000A0  A1 0000023E R	mov    EAX, inputA
@@ -275,7 +263,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
  000000B0  E8 00000000 E	call CrLf
 
 				; (A-B)
- 000000B5  BA 00000273 R	mov    EDX, OFFSET result_2
+ 000000B5  BA 0000026B R	mov    EDX, OFFSET result_2
  000000BA  E8 00000000 E	call   WriteString
 
  000000BF  A1 0000023E R	mov    EAX, inputA
@@ -284,7 +272,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
  000000CF  E8 00000000 E	call CrLf
 
 				; (A+C)
- 000000D4  BA 0000027C R	mov    EDX, OFFSET result_3
+ 000000D4  BA 00000274 R	mov    EDX, OFFSET result_3
  000000D9  E8 00000000 E	call   WriteString
 
  000000DE  A1 0000023E R	mov    EAX, inputA
@@ -293,7 +281,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
  000000EE  E8 00000000 E	call CrLf
 
 				; (A-C)
- 000000F3  BA 00000285 R	mov    EDX, OFFSET result_4
+ 000000F3  BA 0000027D R	mov    EDX, OFFSET result_4
  000000F8  E8 00000000 E	call   WriteString
 
  000000FD  A1 0000023E R	mov    EAX, inputA
@@ -302,7 +290,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
  0000010D  E8 00000000 E	call CrLf
 
 				; (B+C)
- 00000112  BA 0000028E R	mov    EDX, OFFSET result_5
+ 00000112  BA 00000286 R	mov    EDX, OFFSET result_5
  00000117  E8 00000000 E	call   WriteString
 
  0000011C  A1 00000242 R	mov    EAX, inputB
@@ -311,7 +299,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
  0000012C  E8 00000000 E	call CrLf
 
 				; (B-C)
- 00000131  BA 00000297 R	mov    EDX, OFFSET result_6
+ 00000131  BA 0000028F R	mov    EDX, OFFSET result_6
  00000136  E8 00000000 E	call   WriteString
 
  0000013B  A1 00000242 R	mov    EAX, inputB
@@ -320,7 +308,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
  0000014B  E8 00000000 E	call CrLf
 
 				; (A+B+C)
- 00000150  BA 000002A0 R	mov    EDX, OFFSET result_7
+ 00000150  BA 00000298 R	mov    EDX, OFFSET result_7
  00000155  E8 00000000 E	call   WriteString
 
  0000015A  A1 0000023E R	mov    EAX, inputA
@@ -329,9 +317,8 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
  0000016B  E8 00000000 E	call   WriteDec
  00000170  E8 00000000 E	call CrLf
 
-
 				;-Display a closing message.
- 00000175  BA 000002AD R	mov     EDX, OFFSET outro_1
+ 00000175  BA 000002A5 R	mov     EDX, OFFSET outro_1
  0000017A  E8 00000000 E	call    WriteString
  0000017F  E8 00000000 E	call    CrLf
 
@@ -344,7 +331,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
 				; (insert additional procedures here)
 
 				END main
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:47:49
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:52:58
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Symbols 2 - 1
 
 
@@ -438,7 +425,7 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 000002CF Para	  Public  'DATA'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 000002C7 Para	  Public  'DATA'	
 _TEXT  . . . . . . . . . . . . .	32 Bit	 0000018B Para	  Public  'CODE'	
 
 
@@ -765,8 +752,6 @@ VK_UP  . . . . . . . . . . . . .	Number	 00000026h
 WINDOW_BUFFER_SIZE_EVENT . . . .	Number	 00000004h   
 WriteConsoleOutputCharacter  . .	Text   	 WriteConsoleOutputCharacterA
 WriteConsole . . . . . . . . . .	Text   	 WriteConsoleA
-aMinusB  . . . . . . . . . . . .	DWord	 0000024E _DATA	
-aPlusB . . . . . . . . . . . . .	DWord	 0000024A _DATA	
 black  . . . . . . . . . . . . .	Number	 00000000h   
 blue . . . . . . . . . . . . . .	Number	 00000001h   
 brown  . . . . . . . . . . . . .	Number	 00000006h   
@@ -789,19 +774,19 @@ lightGreen . . . . . . . . . . .	Number	 0000000Ah
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-outro_1  . . . . . . . . . . . .	Byte	 000002AD _DATA	
+outro_1  . . . . . . . . . . . .	Byte	 000002A5 _DATA	
 prompt_A . . . . . . . . . . . .	Byte	 000000F5 _DATA	
 prompt_B . . . . . . . . . . . .	Byte	 00000162 _DATA	
 prompt_C . . . . . . . . . . . .	Byte	 000001D0 _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
-result_0 . . . . . . . . . . . .	Byte	 00000252 _DATA	
-result_1 . . . . . . . . . . . .	Byte	 0000026A _DATA	
-result_2 . . . . . . . . . . . .	Byte	 00000273 _DATA	
-result_3 . . . . . . . . . . . .	Byte	 0000027C _DATA	
-result_4 . . . . . . . . . . . .	Byte	 00000285 _DATA	
-result_5 . . . . . . . . . . . .	Byte	 0000028E _DATA	
-result_6 . . . . . . . . . . . .	Byte	 00000297 _DATA	
-result_7 . . . . . . . . . . . .	Byte	 000002A0 _DATA	
+result_0 . . . . . . . . . . . .	Byte	 0000024A _DATA	
+result_1 . . . . . . . . . . . .	Byte	 00000262 _DATA	
+result_2 . . . . . . . . . . . .	Byte	 0000026B _DATA	
+result_3 . . . . . . . . . . . .	Byte	 00000274 _DATA	
+result_4 . . . . . . . . . . . .	Byte	 0000027D _DATA	
+result_5 . . . . . . . . . . . .	Byte	 00000286 _DATA	
+result_6 . . . . . . . . . . . .	Byte	 0000028F _DATA	
+result_7 . . . . . . . . . . . .	Byte	 00000298 _DATA	
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
 yellow . . . . . . . . . . . . .	Number	 0000000Eh   
