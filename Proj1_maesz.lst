@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:38:57
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:42:08
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Page 1 - 1
 
 
@@ -176,30 +176,30 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:38:57
 					; this would continue on for all if needed...
 
 				;----------------------------------------------------
- 00000252 48 45 52 45 20	result_0  BYTE    "HERE ARE YOUR RESULTS: "
+ 00000252 48 45 52 45 20	result_0  BYTE    "HERE ARE YOUR RESULTS: ", 0
 	   41 52 45 20 59
 	   4F 55 52 20 52
 	   45 53 55 4C 54
-	   53 3A 20
- 00000269 41 20 2B 20 42	result_1  BYTE    "A + B = ", 0			; data for displaying calculations
+	   53 3A 20 00
+ 0000026A 41 20 2B 20 42	result_1  BYTE    "A + B = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 00000272 41 20 2D 20 42	result_2  BYTE    "A - B = ", 0			; data for displaying calculations
+ 00000273 41 20 2D 20 42	result_2  BYTE    "A - B = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 0000027B 41 20 2B 20 43	result_3  BYTE    "A + C = ", 0			; data for displaying calculations
+ 0000027C 41 20 2B 20 43	result_3  BYTE    "A + C = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 00000284 41 20 2D 20 43	result_4  BYTE    "A - C = ", 0			; data for displaying calculations
+ 00000285 41 20 2D 20 43	result_4  BYTE    "A - C = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 0000028D 42 20 2B 20 43	result_5  BYTE    "B + C = ", 0			; data for displaying calculations
+ 0000028E 42 20 2B 20 43	result_5  BYTE    "B + C = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 00000296 42 20 2D 20 43	result_6  BYTE    "B - C = ", 0			; data for displaying calculations
+ 00000297 42 20 2D 20 43	result_6  BYTE    "B - C = ", 0			; data for displaying calculations
 	   20 3D 20 00
- 0000029F 41 20 2B 20 42	result_7  BYTE    "A + B + C = ", 0     ; data for displaying calculations
+ 000002A0 41 20 2B 20 42	result_7  BYTE    "A + B + C = ", 0     ; data for displaying calculations
 	   20 2B 20 43 20
 	   3D 20 00
 
 				;----------------------------------------------------
 
- 000002AC 54 48 41 4E 4B	outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing message
+ 000002AD 54 48 41 4E 4B	outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing message
 	   20 59 4F 55 20
 	   46 4F 52 20 52
 	   55 4E 4E 49 4E
@@ -266,7 +266,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:38:57
  00000091  E8 00000000 E	call   CrLf
 				;-Calculate the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 				; (A+B)
- 00000096  BA 00000269 R	mov    EDX, OFFSET result_1
+ 00000096  BA 0000026A R	mov    EDX, OFFSET result_1
  0000009B  E8 00000000 E	call   WriteString
 
  000000A0  A1 0000023E R	mov    EAX, inputA
@@ -275,7 +275,7 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:38:57
  000000B0  E8 00000000 E	call CrLf
 
 				; (A-B)
- 000000B5  BA 00000272 R	mov    EDX, OFFSET result_2
+ 000000B5  BA 00000273 R	mov    EDX, OFFSET result_2
  000000BA  E8 00000000 E	call   WriteString
 
  000000BF  A1 0000023E R	mov    EAX, inputA
@@ -283,26 +283,43 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:38:57
  000000CA  E8 00000000 E	call   WriteDec
  000000CF  E8 00000000 E	call CrLf
 
+				; (A+C)
+ 000000D4  BA 0000027C R	mov    EDX, OFFSET result_3
+ 000000D9  E8 00000000 E	call   WriteString
+
+ 000000DE  A1 0000023E R	mov    EAX, inputA
+ 000000E3  03 05 00000246 R	add    EAX, inputC
+ 000000E9  E8 00000000 E	call   WriteDec
+ 000000EE  E8 00000000 E	call CrLf
+
+				; (A+C)
+ 000000F3  BA 00000285 R	mov    EDX, OFFSET result_4
+ 000000F8  E8 00000000 E	call   WriteString
+
+ 000000FD  A1 0000023E R	mov    EAX, inputA
+ 00000102  2B 05 00000246 R	sub    EAX, inputC
+ 00000108  E8 00000000 E	call   WriteDec
+ 0000010D  E8 00000000 E	call CrLf
 
 
 				;-display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 				; mov     EDX, OFFSET 
 
 				;-Display a closing message.
- 000000D4  BA 000002AC R	mov     EDX, OFFSET outro_1
- 000000D9  E8 00000000 E	call    WriteString
- 000000DE  E8 00000000 E	call    CrLf
+ 00000112  BA 000002AD R	mov     EDX, OFFSET outro_1
+ 00000117  E8 00000000 E	call    WriteString
+ 0000011C  E8 00000000 E	call    CrLf
 
 
 					Invoke ExitProcess,0	; exit to operating system
- 000000E3  6A 00	   *	    push   +000000000h
- 000000E5  E8 00000000 E   *	    call   ExitProcess
- 000000EA			main ENDP
+ 00000121  6A 00	   *	    push   +000000000h
+ 00000123  E8 00000000 E   *	    call   ExitProcess
+ 00000128			main ENDP
 
 				; (insert additional procedures here)
 
 				END main
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:38:57
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 15:42:08
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Symbols 2 - 1
 
 
@@ -396,8 +413,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 000002CE Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 000000EA Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 000002CF Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000128 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -504,7 +521,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 000000EA Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000128 Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
@@ -747,19 +764,19 @@ lightGreen . . . . . . . . . . .	Number	 0000000Ah
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-outro_1  . . . . . . . . . . . .	Byte	 000002AC _DATA	
+outro_1  . . . . . . . . . . . .	Byte	 000002AD _DATA	
 prompt_A . . . . . . . . . . . .	Byte	 000000F5 _DATA	
 prompt_B . . . . . . . . . . . .	Byte	 00000162 _DATA	
 prompt_C . . . . . . . . . . . .	Byte	 000001D0 _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
 result_0 . . . . . . . . . . . .	Byte	 00000252 _DATA	
-result_1 . . . . . . . . . . . .	Byte	 00000269 _DATA	
-result_2 . . . . . . . . . . . .	Byte	 00000272 _DATA	
-result_3 . . . . . . . . . . . .	Byte	 0000027B _DATA	
-result_4 . . . . . . . . . . . .	Byte	 00000284 _DATA	
-result_5 . . . . . . . . . . . .	Byte	 0000028D _DATA	
-result_6 . . . . . . . . . . . .	Byte	 00000296 _DATA	
-result_7 . . . . . . . . . . . .	Byte	 0000029F _DATA	
+result_1 . . . . . . . . . . . .	Byte	 0000026A _DATA	
+result_2 . . . . . . . . . . . .	Byte	 00000273 _DATA	
+result_3 . . . . . . . . . . . .	Byte	 0000027C _DATA	
+result_4 . . . . . . . . . . . .	Byte	 00000285 _DATA	
+result_5 . . . . . . . . . . . .	Byte	 0000028E _DATA	
+result_6 . . . . . . . . . . . .	Byte	 00000297 _DATA	
+result_7 . . . . . . . . . . . .	Byte	 000002A0 _DATA	
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
 yellow . . . . . . . . . . . . .	Number	 0000000Eh   
