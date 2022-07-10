@@ -61,8 +61,10 @@ outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing mess
 .code
 main PROC
 
-; (insert executable instructions here)
 ;-Display your name and program title on the output screen.
+mov     EDX, OFFSET intro_1
+call    WriteString
+call    CrLf
 ;-Display instructions for the user.
 ;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
 ;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
