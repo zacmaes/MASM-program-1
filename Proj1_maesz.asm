@@ -65,10 +65,15 @@ main PROC
 mov     EDX, OFFSET intro_1
 call    WriteString
 call    CrLf
+
 ;-Display instructions for the user.
 ;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
 ;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+
 ;-Display a closing message.
+mov     EDX, OFFSET outro_1
+call    WriteString
+call    CrLf
 
 
 	Invoke ExitProcess,0	; exit to operating system
