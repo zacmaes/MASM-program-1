@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 14:37:12
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 14:50:26
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Page 1 - 1
 
 
@@ -218,22 +218,46 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 14:37:12
 
 				;-Display instructions for the user.
  0000000F  BA 00000043 R	mov     EDX, OFFSET intro_2
- 00000014  E8 00000000 E	call WriteString
- 00000019  E8 00000000 E	call CrLf
+ 00000014  E8 00000000 E	call    WriteString
+ 00000019  E8 00000000 E	call    CrLf
 
  0000001E  BA 00000051 R	mov     EDX, OFFSET intro_3
- 00000023  E8 00000000 E	call WriteString
- 00000028  E8 00000000 E	call CrLf
+ 00000023  E8 00000000 E	call    WriteString
+ 00000028  E8 00000000 E	call    CrLf
 
  0000002D  BA 00000095 R	mov     EDX, OFFSET intro_4
- 00000032  E8 00000000 E	call WriteString
- 00000037  E8 00000000 E	call CrLf
+ 00000032  E8 00000000 E	call    WriteString
+ 00000037  E8 00000000 E	call    CrLf
 
  0000003C  BA 000000CD R	mov     EDX, OFFSET intro_5
- 00000041  E8 00000000 E	call WriteString
- 00000046  E8 00000000 E	call CrLf
+ 00000041  E8 00000000 E	call    WriteString
+ 00000046  E8 00000000 E	call    CrLf
 
 				;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
+				; (A)
+ 0000004B  BA 000000F5 R	mov     EDX, OFFSET prompt_A
+ 00000050  E8 00000000 E	call    WriteString
+				; pre-conditions of ReadDec: NONE
+ 00000055  E8 00000000 E	call    ReadDec
+				; post-conditions of ReadDec: Value is saved in EAX
+ 0000005A  A3 0000023E R	mov     inputA, EAX
+
+				; (B)
+ 0000005F  BA 00000162 R	mov     EDX, OFFSET prompt_B
+ 00000064  E8 00000000 E	call    WriteString
+				; pre-conditions of ReadDec: NONE
+ 00000069  E8 00000000 E	call    ReadDec
+				; post-conditions of ReadDec: Value is saved in EAX
+ 0000006E  A3 00000242 R	mov     inputB, EAX
+
+				; (C)
+ 00000073  BA 000001D0 R	mov     EDX, OFFSET prompt_C
+ 00000078  E8 00000000 E	call    WriteString
+				; pre-conditions of ReadDec: NONE
+ 0000007D  E8 00000000 E	call    ReadDec
+				; post-conditions of ReadDec: Value is saved in EAX
+ 00000082  A3 00000246 R	mov     inputC, EAX
+
 
 
 				;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
@@ -244,20 +268,20 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 14:37:12
 				; mov     EDX, OFFSET 
 
 				;-Display a closing message.
- 0000004B  BA 000002AC R	mov     EDX, OFFSET outro_1
- 00000050  E8 00000000 E	call    WriteString
- 00000055  E8 00000000 E	call    CrLf
+ 00000087  BA 000002AC R	mov     EDX, OFFSET outro_1
+ 0000008C  E8 00000000 E	call    WriteString
+ 00000091  E8 00000000 E	call    CrLf
 
 
 					Invoke ExitProcess,0	; exit to operating system
- 0000005A  6A 00	   *	    push   +000000000h
- 0000005C  E8 00000000 E   *	    call   ExitProcess
- 00000061			main ENDP
+ 00000096  6A 00	   *	    push   +000000000h
+ 00000098  E8 00000000 E   *	    call   ExitProcess
+ 0000009D			main ENDP
 
 				; (insert additional procedures here)
 
 				END main
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 14:37:12
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 14:50:26
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Symbols 2 - 1
 
 
@@ -352,7 +376,7 @@ Segments and Groups:
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
 _DATA  . . . . . . . . . . . . .	32 Bit	 000002CE Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000061 Para	  Public  'CODE'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000009D Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -459,7 +483,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000061 Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000009D Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C

@@ -70,26 +70,51 @@ call    CrLf
 
 ;-Display instructions for the user.
 mov     EDX, OFFSET intro_2
-call WriteString
-call CrLf
+call    WriteString
+call    CrLf
 
 mov     EDX, OFFSET intro_3
-call WriteString
-call CrLf
+call    WriteString
+call    CrLf
 
 mov     EDX, OFFSET intro_4
-call WriteString
-call CrLf
+call    WriteString
+call    CrLf
 
 mov     EDX, OFFSET intro_5
-call WriteString
-call CrLf
+call    WriteString
+call    CrLf
 
 ;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
+; (A)
+mov     EDX, OFFSET prompt_A
+call    WriteString
+; pre-conditions of ReadDec: NONE
+call    ReadDec
+; post-conditions of ReadDec: Value is saved in EAX
+mov     inputA, EAX
+
+; (B)
+mov     EDX, OFFSET prompt_B
+call    WriteString
+; pre-conditions of ReadDec: NONE
+call    ReadDec
+; post-conditions of ReadDec: Value is saved in EAX
+mov     inputB, EAX
+
+; (C)
+mov     EDX, OFFSET prompt_C
+call    WriteString
+; pre-conditions of ReadDec: NONE
+call    ReadDec
+; post-conditions of ReadDec: Value is saved in EAX
+mov     inputC, EAX
+
 
 
 ;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 ;-Calculate the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
+
 
 
 ;-display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
