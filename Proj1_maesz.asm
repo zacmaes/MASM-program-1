@@ -21,15 +21,15 @@ INCLUDE Irvine32.inc
 
 .data
 
-intro_1   BYTE    "Hi, my name is Zac and this is my Project One Simple MASM Program!", 0	; data for introduction
+intro_1   BYTE    "Project One: Simple MASM Program!      by: Zac Maes               ", 0	; data for introduction
 intro_2   BYTE    "Instructions:", 0														; data for instructions
 intro_3   BYTE    "You are going to enter three numbers (A, B, C) in descending order.", 0  ; data for instructions
 intro_4   BYTE    "This program will calculate the following calculations:", 0              ; data for instructions
 intro_5   BYTE    "    A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0								; data for instructions
 
-prompt_A  BYTE    "Please enter what number you would like A to equal (Remember, this must be the largets number of the three!)", 0		; User Prompt for A
-prompt_B  BYTE	  "Please enter what number you would like B to equal (Remember, this must be smaller than A and larger than C!)", 0	; User Prompt for B
-prompt_C  BYTE	  "Please enter what number you would like C to equal (Remember, this must be the smallest number of the three!)", 0	; User Prompt for C
+prompt_A  BYTE    "Please enter number A (largest): ", 0		; User Prompt for A
+prompt_B  BYTE	  "Please enter number B (middle): ", 0			; User Prompt for B
+prompt_C  BYTE	  "Please enter number C (smallest): ", 0		; User Prompt for C
 
 inputA	  DWORD   ?		; Stores user input for A 
 inputB	  DWORD	  ?		; Stores user input for B
@@ -62,6 +62,7 @@ main PROC
 mov     EDX, OFFSET intro_1
 call    WriteString
 call    CrLf
+call    CrLf
 
 ;-Display instructions for the user.
 mov     EDX, OFFSET intro_2
@@ -79,6 +80,7 @@ call    CrLf
 mov     EDX, OFFSET intro_5
 call    WriteString
 call    CrLf
+call    CrLf
 
 
 ; -------------------GET THE DATA-------------------
@@ -92,6 +94,7 @@ call    WriteString
 call    ReadDec
 ; post-conditions of ReadDec: Value is saved in EAX
 mov     inputA, EAX
+
 
 ; (B)
 mov     EDX, OFFSET prompt_B
@@ -211,6 +214,7 @@ call   WriteString
 
 mov    EAX, ABCPlus
 call   WriteDec
+call   CrLf
 call   CrLf
 
 
