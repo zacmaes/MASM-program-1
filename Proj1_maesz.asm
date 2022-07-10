@@ -23,21 +23,48 @@ INCLUDE Irvine32.inc
 
 ; (insert variable definitions here)
 
-; data needed for title???
-; data needed for instructions???
-; userInputA
-; userInputB
-; userInputC
+intro_1   BYTE    "Hi, my name is Zac and this is my Project One Simple MASM Program!", 0		; data for introduction
+intro_2   BYTE    "Instructions: You are going to enter three numbers (A, B, C) in descending order. This program will calculate the following calculations:", 0  ; data for instructions
+intro_3   BYTE    "A+B, A-B, A+C, A-C, B+C, B-C, A+B+C", 0  ; data for instructions
+
+prompt_A  BYTE    "Please enter what number you would like A to equal (Remember, this must be the largets number of the three!)", 0
+prompt_B  BYTE	  "Please enter what number you would like B to equal (Remember, this must be smaller than A and larger than C!)", 0
+prompt_C  BYTE	  "Please enter what number you would like C to equal (Remember, this must be the smallest number of the three!)", 0
+
+;----------------------------------------------------
+inputA	  DWORD   ?	; DO I EVEN NEED THIS??? 
+inputB	  DWORD	  ?	; DO I EVEN NEED THIS???
+inputC	  DWORD	  ? ; DO I EVEN NEED THIS???
+;----------------------------------------------------
+
 ; data for calculating and saving calculations???
-; data for displaying calculations???
-; data for closing message???
+
+aPlusB	  DWORD	  ? ; DO I EVEN NEED THIS???
+aMinusB	  DWORD	  ? ; DO I EVEN NEED THIS???
+	; this would continue on for all if needed...
+
+;----------------------------------------------------
+
+result_1  BYTE    "A + B = ", 0			; data for displaying calculations
+result_2  BYTE    "A - B = ", 0			; data for displaying calculations
+result_3  BYTE    "A + C = ", 0			; data for displaying calculations
+result_4  BYTE    "A - C = ", 0			; data for displaying calculations
+result_5  BYTE    "B + C = ", 0			; data for displaying calculations
+result_6  BYTE    "B - C = ", 0			; data for displaying calculations
+result_7  BYTE    "A + B + C = ", 0     ; data for displaying calculations
+
+;----------------------------------------------------
+
+outro_1	  BYTE    "THANK YOU FOR RUNNING MY PROGRAM!", 0	; data for closing message
+
+
 .code
 main PROC
 
 ; (insert executable instructions here)
 ;-Display your name and program title on the output screen.
 ;-Display instructions for the user.
-;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.
+;-Prompt the user to enter three numbers (A, B, C) in strictly descending order.(so that we don't end up with negative numbers in the subtraction)
 ;-Calculate and display the sum and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 ;-Display a closing message.
 
