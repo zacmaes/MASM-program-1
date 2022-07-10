@@ -113,80 +113,107 @@ mov     inputC, EAX
 ; -------------------CALCULATE THE REQUIRED VALUES-------------------
 
 
-;-Calculate and display the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
-mov    EDX, OFFSET result_0
-call   WriteString
-call   CrLf
-
+;-Calculate the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 ; (A+B)
 mov    EAX, inputA
 add    EAX, inputB
 mov    APlusB, EAX
 
 ; (A-B)
-mov    EDX, OFFSET result_2
-call   WriteString
-
 mov    EAX, inputA
 sub    EAX, inputB
-call   WriteDec
-call CrLf
+mov    AMinusB, EAX
 
 ; (A+C)
-mov    EDX, OFFSET result_3
-call   WriteString
-
 mov    EAX, inputA
 add    EAX, inputC
-call   WriteDec
-call CrLf
+mov    APlusC, EAX
 
 ; (A-C)
-mov    EDX, OFFSET result_4
-call   WriteString
-
 mov    EAX, inputA
 sub    EAX, inputC
-call   WriteDec
-call CrLf
+mov    AMinusC, EAX
 
 ; (B+C)
-mov    EDX, OFFSET result_5
-call   WriteString
-
 mov    EAX, inputB
 add    EAX, inputC
-call   WriteDec
-call CrLf
+mov    BPlusC, EAX
+
 
 ; (B-C)
-mov    EDX, OFFSET result_6
-call   WriteString
-
 mov    EAX, inputB
 sub    EAX, inputC
-call   WriteDec
-call CrLf
+mov    BMinusC, EAX
 
 ; (A+B+C)
-mov    EDX, OFFSET result_7
-call   WriteString
-
 mov    EAX, inputA
 add    EAX, inputB
 add    EAX, inputC
-call   WriteDec
-call CrLf
+mov    ABCPlus, EAX
 
 
 ; -------------------DISPLAY THE RESULTS-------------------
+mov    EDX, OFFSET result_0
+call   WriteString
+call   CrLf
+
 ; (A + B)
 mov    EDX, OFFSET result_1
 call   WriteString
 
 mov    EAX, APlusB
 call   WriteDec
-call CrLf
+call   CrLf
+
+; (A-B)
+mov    EDX, OFFSET result_2
+call   WriteString
+
+mov    EAX, AMinusB
+call   WriteDec
+call   CrLf
+
+; (A+C)
+mov    EDX, OFFSET result_3
+call   WriteString
+
+mov    EAX, APlusC
+call   WriteDec
+call   CrLf
+
+; (A-C)
+mov    EDX, OFFSET result_4
+call   WriteString
+
+mov    EAX, AMinusC
+call   WriteDec
+call   CrLf
+
+; (B+C)
+mov    EDX, OFFSET result_5
+call   WriteString
+
+mov    EAX, BPlusC
+call   WriteDec
+call   CrLf
+
+; (B-C)
+mov    EDX, OFFSET result_6
+call   WriteString
+
+mov    EAX, BMinusC
+call   WriteDec
+call   CrLf
+
+; (A+B+C)
+mov    EDX, OFFSET result_7
+call   WriteString
+
+mov    EAX, ABCPlus
+call   WriteDec
+call   CrLf
+
+
 
 
 ; -------------------SAY GOODBYE-------------------

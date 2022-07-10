@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 16:09:37
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 16:22:19
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Page 1 - 1
 
 
@@ -261,100 +261,127 @@ Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 16:09:37
 				; -------------------CALCULATE THE REQUIRED VALUES-------------------
 
 
-				;-Calculate and display the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
- 00000087  BA 0000024A R	mov    EDX, OFFSET result_0
- 0000008C  E8 00000000 E	call   WriteString
- 00000091  E8 00000000 E	call   CrLf
-
+				;-Calculate the sums and differences: (A+B, A-B, A+C, A-C, B+C, B-C, A+B+C).
 				; (A+B)
- 00000096  A1 0000023E R	mov    EAX, inputA
- 0000009B  03 05 00000242 R	add    EAX, inputB
- 000000A1  A3 000002A5 R	mov    APlusB, EAX
+ 00000087  A1 0000023E R	mov    EAX, inputA
+ 0000008C  03 05 00000242 R	add    EAX, inputB
+ 00000092  A3 000002A5 R	mov    APlusB, EAX
 
 				; (A-B)
- 000000A6  BA 0000026B R	mov    EDX, OFFSET result_2
- 000000AB  E8 00000000 E	call   WriteString
-
- 000000B0  A1 0000023E R	mov    EAX, inputA
- 000000B5  2B 05 00000242 R	sub    EAX, inputB
- 000000BB  E8 00000000 E	call   WriteDec
- 000000C0  E8 00000000 E	call CrLf
+ 00000097  A1 0000023E R	mov    EAX, inputA
+ 0000009C  2B 05 00000242 R	sub    EAX, inputB
+ 000000A2  A3 000002A9 R	mov    AMinusB, EAX
 
 				; (A+C)
- 000000C5  BA 00000274 R	mov    EDX, OFFSET result_3
- 000000CA  E8 00000000 E	call   WriteString
-
- 000000CF  A1 0000023E R	mov    EAX, inputA
- 000000D4  03 05 00000246 R	add    EAX, inputC
- 000000DA  E8 00000000 E	call   WriteDec
- 000000DF  E8 00000000 E	call CrLf
+ 000000A7  A1 0000023E R	mov    EAX, inputA
+ 000000AC  03 05 00000246 R	add    EAX, inputC
+ 000000B2  A3 000002AD R	mov    APlusC, EAX
 
 				; (A-C)
- 000000E4  BA 0000027D R	mov    EDX, OFFSET result_4
- 000000E9  E8 00000000 E	call   WriteString
-
- 000000EE  A1 0000023E R	mov    EAX, inputA
- 000000F3  2B 05 00000246 R	sub    EAX, inputC
- 000000F9  E8 00000000 E	call   WriteDec
- 000000FE  E8 00000000 E	call CrLf
+ 000000B7  A1 0000023E R	mov    EAX, inputA
+ 000000BC  2B 05 00000246 R	sub    EAX, inputC
+ 000000C2  A3 000002B1 R	mov    AMinusC, EAX
 
 				; (B+C)
- 00000103  BA 00000286 R	mov    EDX, OFFSET result_5
- 00000108  E8 00000000 E	call   WriteString
+ 000000C7  A1 00000242 R	mov    EAX, inputB
+ 000000CC  03 05 00000246 R	add    EAX, inputC
+ 000000D2  A3 000002B5 R	mov    BPlusC, EAX
 
- 0000010D  A1 00000242 R	mov    EAX, inputB
- 00000112  03 05 00000246 R	add    EAX, inputC
- 00000118  E8 00000000 E	call   WriteDec
- 0000011D  E8 00000000 E	call CrLf
 
 				; (B-C)
- 00000122  BA 0000028F R	mov    EDX, OFFSET result_6
- 00000127  E8 00000000 E	call   WriteString
-
- 0000012C  A1 00000242 R	mov    EAX, inputB
- 00000131  2B 05 00000246 R	sub    EAX, inputC
- 00000137  E8 00000000 E	call   WriteDec
- 0000013C  E8 00000000 E	call CrLf
+ 000000D7  A1 00000242 R	mov    EAX, inputB
+ 000000DC  2B 05 00000246 R	sub    EAX, inputC
+ 000000E2  A3 000002B9 R	mov    BMinusC, EAX
 
 				; (A+B+C)
- 00000141  BA 00000298 R	mov    EDX, OFFSET result_7
- 00000146  E8 00000000 E	call   WriteString
-
- 0000014B  A1 0000023E R	mov    EAX, inputA
- 00000150  03 05 00000242 R	add    EAX, inputB
- 00000156  03 05 00000246 R	add    EAX, inputC
- 0000015C  E8 00000000 E	call   WriteDec
- 00000161  E8 00000000 E	call CrLf
+ 000000E7  A1 0000023E R	mov    EAX, inputA
+ 000000EC  03 05 00000242 R	add    EAX, inputB
+ 000000F2  03 05 00000246 R	add    EAX, inputC
+ 000000F8  A3 000002BD R	mov    ABCPlus, EAX
 
 
 				; -------------------DISPLAY THE RESULTS-------------------
-				; (A + B)
- 00000166  BA 00000262 R	mov    EDX, OFFSET result_1
- 0000016B  E8 00000000 E	call   WriteString
+ 000000FD  BA 0000024A R	mov    EDX, OFFSET result_0
+ 00000102  E8 00000000 E	call   WriteString
+ 00000107  E8 00000000 E	call   CrLf
 
- 00000170  A1 000002A5 R	mov    EAX, APlusB
- 00000175  E8 00000000 E	call   WriteDec
- 0000017A  E8 00000000 E	call CrLf
+				; (A + B)
+ 0000010C  BA 00000262 R	mov    EDX, OFFSET result_1
+ 00000111  E8 00000000 E	call   WriteString
+
+ 00000116  A1 000002A5 R	mov    EAX, APlusB
+ 0000011B  E8 00000000 E	call   WriteDec
+ 00000120  E8 00000000 E	call   CrLf
+
+				; (A-B)
+ 00000125  BA 0000026B R	mov    EDX, OFFSET result_2
+ 0000012A  E8 00000000 E	call   WriteString
+
+ 0000012F  A1 000002A9 R	mov    EAX, AMinusB
+ 00000134  E8 00000000 E	call   WriteDec
+ 00000139  E8 00000000 E	call   CrLf
+
+				; (A+C)
+ 0000013E  BA 00000274 R	mov    EDX, OFFSET result_3
+ 00000143  E8 00000000 E	call   WriteString
+
+ 00000148  A1 000002AD R	mov    EAX, APlusC
+ 0000014D  E8 00000000 E	call   WriteDec
+ 00000152  E8 00000000 E	call   CrLf
+
+				; (A-C)
+ 00000157  BA 0000027D R	mov    EDX, OFFSET result_4
+ 0000015C  E8 00000000 E	call   WriteString
+
+ 00000161  A1 000002B1 R	mov    EAX, AMinusC
+ 00000166  E8 00000000 E	call   WriteDec
+ 0000016B  E8 00000000 E	call   CrLf
+
+				; (B+C)
+ 00000170  BA 00000286 R	mov    EDX, OFFSET result_5
+ 00000175  E8 00000000 E	call   WriteString
+
+ 0000017A  A1 000002B5 R	mov    EAX, BPlusC
+ 0000017F  E8 00000000 E	call   WriteDec
+ 00000184  E8 00000000 E	call   CrLf
+
+				; (B-C)
+ 00000189  BA 0000028F R	mov    EDX, OFFSET result_6
+ 0000018E  E8 00000000 E	call   WriteString
+
+ 00000193  A1 000002B9 R	mov    EAX, BMinusC
+ 00000198  E8 00000000 E	call   WriteDec
+ 0000019D  E8 00000000 E	call   CrLf
+
+				; (A+B+C)
+ 000001A2  BA 00000298 R	mov    EDX, OFFSET result_7
+ 000001A7  E8 00000000 E	call   WriteString
+
+ 000001AC  A1 000002BD R	mov    EAX, ABCPlus
+ 000001B1  E8 00000000 E	call   WriteDec
+ 000001B6  E8 00000000 E	call   CrLf
+
+
 
 
 				; -------------------SAY GOODBYE-------------------
 
 
 				;-Display a closing message.
- 0000017F  BA 000002C1 R	mov     EDX, OFFSET outro_1
- 00000184  E8 00000000 E	call    WriteString
- 00000189  E8 00000000 E	call    CrLf
+ 000001BB  BA 000002C1 R	mov     EDX, OFFSET outro_1
+ 000001C0  E8 00000000 E	call    WriteString
+ 000001C5  E8 00000000 E	call    CrLf
 
 
 					Invoke ExitProcess,0	; exit to operating system
- 0000018E  6A 00	   *	    push   +000000000h
- 00000190  E8 00000000 E   *	    call   ExitProcess
- 00000195			main ENDP
+ 000001CA  6A 00	   *	    push   +000000000h
+ 000001CC  E8 00000000 E   *	    call   ExitProcess
+ 000001D1			main ENDP
 
 				; (insert additional procedures here)
 
 				END main
-Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 16:09:37
+Microsoft (R) Macro Assembler Version 14.29.30139.0	    07/10/22 16:22:19
 5Project One Simple MASM Program     (Proj1_maesz.asm	     Symbols 2 - 1
 
 
@@ -449,7 +476,7 @@ Segments and Groups:
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
 _DATA  . . . . . . . . . . . . .	32 Bit	 000002E3 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000195 Para	  Public  'CODE'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 000001D1 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -556,7 +583,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000195 Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 000001D1 Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
